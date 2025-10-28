@@ -36,7 +36,7 @@ export function SpotlightCard({
 
   return (
     <Card
-      className={`group relative overflow-hidden border rounded-lg ${
+      className={`group relative overflow-hidden  rounded-lg ${
         className ?? ""
       }`}
       style={
@@ -52,7 +52,7 @@ export function SpotlightCard({
         className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
         style={{ backgroundImage }}
       />
-      <CardContent className="flex flex-col justify-center items-center w-full h-full p-6">
+      <CardContent className="w-full h-full flex p-0">
         {children}
       </CardContent>
     </Card>

@@ -1,0 +1,18 @@
+@use './styles/_variables.scss' as vars;
+
+.background {
+  background: linear-gradient(135deg, #F2B6A0 0%, #8BA4DC 50%, #F5A8A8 100%);
+}
+
+.layout {
+  align-items: start;
+  justify-content: start;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  border: none;
+  padding: 16px;
+  overflow-y: auto;
+}
