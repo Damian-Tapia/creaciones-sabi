@@ -1,0 +1,133 @@
+// ===== Variables =====
+$transition-fast: 0.3s ease;
+$transition-medium: 0.5s ease;
+$shadow-base: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+// ===== Services Section =====
+.services-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  &__title {
+    font-size: 3rem;
+    font-family: var(--font-caveat);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+
+    &-highlight {
+      color: #F5A8A8;
+      margin-left:6px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// ===== Service Card =====
+.service-card {
+  background-color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: $shadow-base;
+  transition: box-shadow $transition-fast;
+
+  &:hover {
+    box-shadow: $shadow-hover;
+  }
+
+  // Imagen
+  &__image-wrapper {
+    position: relative;
+    height: 24rem;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-medium;
+
+    .service-card:hover & {
+      transform: scale(1.05);
+    }
+  }
+
+  // Contenido
+  &__content {
+    padding: 1.5rem;
+  }
+
+  &__title {
+    font-size: 1.875rem;
+    font-family: var(--font-caveat);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    // El color se aplica inline vía prop
+  }
+
+  &__description {
+    color: rgb(75 85 99); // gray-600
+    font-family: var(--font-inter);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  // Features
+  &__features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+}
+
+// ===== Feature Badge =====
+.feature-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+
+  &__icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+
+    &--personalizable {
+      color: #EAB308; // yellow-500
+    }
+
+    &--hecho-mano {
+      color: #EC4899; // pink-500
+    }
+
+    &--mexicano {
+      color: #22C55E; // green-500
+    }
+  }
+
+  &__text {
+    color: rgb(55 65 81); // gray-700
+    font-family: var(--font-inter);
+  }
+}

@@ -37,6 +37,22 @@
 --sidebar-accent-foreground: oklch(0.205 0 0);
 --sidebar-border: oklch(0.922 0 0);
 --sidebar-ring: oklch(0.708 0 0);
+  --color-mint: #7CC9C3;
+  --color-pink: #F5A8A8;
+  --color-yellow: #F7D66B;
+  --color-blue: #8BA4DC;
+  --color-aqua: #79C6AD;
+  --color-lilac: #C2A0D9;
+  --color-peach: #F2B6A0;
+  --color-bg: #F8F2E8;
+
+  --background-gradient: linear-gradient(135deg, var(--color-peach) 0%, var(--color-blue) 50%, var(--color-pink) 100%);
+
+  --primary-color: var(--color-mint);
+  --secondary-color: var(--color-pink);
+  --accent-color: var(--color-yellow);
+  --background-color: var(--color-bg);
+  --text-color: #333;
 }
  
 .dark {
@@ -121,3 +137,4 @@ body {
   @apply bg-background text-foreground;
 }
 }
+
