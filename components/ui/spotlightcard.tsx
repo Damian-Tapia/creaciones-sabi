@@ -52,7 +52,7 @@ export function SpotlightCard({
         className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
         style={{ backgroundImage }}
       />
-      <CardContent className="w-full h-full flex p-0">
+      <CardContent className="w-full h-full flex p-0 flex-col">
         {children}
       </CardContent>
     </Card>

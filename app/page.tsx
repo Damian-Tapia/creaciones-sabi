@@ -9,6 +9,7 @@ import ServicesSection from "./components/ServiceCards/ServiceCards";
 import dulceros from "@/public/images/dulceros.png";
 import pinatas from "@/public/images/pinatas.png";
 import decoraciones from "@/public/images/decoraciones.png";
+import ArtisanWork from "./components/ArtWork/Artwork";
 
 const dockItems = [
   {
@@ -132,13 +133,12 @@ export default function Home() {
           <div className="decorative-bubble decorative-bubble--lavender"></div>
         </section>
         <section>
-          <ServicesSection services={myServices}/>
+          <ServicesSection services={myServices} />
+        </section>
+        <section>
+          <ArtisanWork />
         </section>
       </main>
-
-      <footer className="footer_dock">
-        {/* <MagicDock items={dockItems} variant="tooltip" className="magicdock-sticky" /> */}
-      </footer>
     </main>
   );
 }
