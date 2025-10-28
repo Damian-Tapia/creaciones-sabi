@@ -15,7 +15,7 @@ interface LayeredTextProps {
   className?: string;
 }
 
- const LayeredText: React.FC<LayeredTextProps> = ({
+const LayeredText: React.FC<LayeredTextProps> = ({
   text,
   layers = ["#10B981", "#3B82F6", "#EF4444"],
   offsetX = 6,
@@ -42,10 +42,10 @@ interface LayeredTextProps {
             transition={
               animate
                 ? {
-                    duration: animationDuration,
-                    delay: index * 0.1,
-                    ease: "easeOut",
-                  }
+                  duration: animationDuration,
+                  delay: index * 0.1,
+                  ease: "easeOut",
+                }
                 : undefined
             }
           >
@@ -57,7 +57,6 @@ interface LayeredTextProps {
           className={cn("relative", className)}
           style={{
             WebkitTextStroke: `${strokeWidth}px var(--stroke-color)`,
-            textStroke: `${strokeWidth}px var(--stroke-color)`,
             paintOrder: "stroke fill",
             zIndex: layers.length,
           }}
@@ -66,15 +65,16 @@ interface LayeredTextProps {
           transition={
             animate
               ? {
-                  duration: animationDuration,
-                  delay: layers.length * 0.1,
-                  ease: "easeOut",
-                }
+                duration: animationDuration,
+                delay: layers.length * 0.1,
+                ease: "easeOut",
+              }
               : undefined
           }
         >
           {text}
         </motion.div>
+
       </div>
     </div>
   );
