@@ -4,6 +4,7 @@ import {
   AnimatePresence,
   motion,
   type Variants,
+  type Transition,
   useReducedMotion,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -16,11 +17,14 @@ interface StaggerCharsProps {
   className?: string;
   hoverClassName?: string;
   direction?: "up" | "down" | "alternate";
-  easing?: number[];
+  /** Usa Transition["ease"]: "linear" | "easeInOut" | cubic-bezier tuple | función */
+  easing?: Transition["ease"];
   disabled?: boolean;
   onAnimationStart?: () => void;
   onAnimationComplete?: () => void;
 }
+
+const DEFAULT_EASE = [0.22, 1, 0.36, 1] as const; // cubic-bezier tipado como tuple
 
 const useProcessedChars = (text: string, hoverText?: string) =>
   React.useMemo(() => {
@@ -88,7 +92,7 @@ const StaggerChars = React.memo<StaggerCharsProps>(
     duration = 1,
     className,
     direction = "alternate",
-    easing = [0.22, 1, 0.36, 1],
+    easing = DEFAULT_EASE, // ✅ tuple bien tipada
     disabled = false,
     onAnimationStart,
     onAnimationComplete,
@@ -99,10 +103,15 @@ const StaggerChars = React.memo<StaggerCharsProps>(
 
     const [isHovered, setIsHovered] = React.useState(false);
     const [isAutoAnimating, setIsAutoAnimating] = React.useState(false);
-    const intervalRef = React.useRef<NodeJS.Timeout>();
+
+    // ✅ FIX useRef: valor inicial y tipo cross-env
+    const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(
+      null
+    );
 
     React.useEffect(() => {
       if (!isTouchDevice || disabled) return;
+
       const timeout = setTimeout(() => {
         setIsAutoAnimating(true);
         onAnimationStart?.();
@@ -141,7 +150,7 @@ const StaggerChars = React.memo<StaggerCharsProps>(
               transition: {
                 duration,
                 delay: index * delay,
-                ease: easing,
+                ease: easing, // ✅ tipo compatible
               },
             },
       exit: ({ isEven }: { index: number; isEven: boolean }) =>
@@ -212,7 +221,10 @@ const StaggerChars = React.memo<StaggerCharsProps>(
                   }}
                 >
                   {isEven && (
-                    <span className={cn("block h-[1em] leading-none", hoverClassName)} style={{ lineHeight: 1 }}>
+                    <span
+                      className={cn("block h-[1em] leading-none", hoverClassName)}
+                      style={{ lineHeight: 1 }}
+                    >
                       {isSpace ? "\u00A0" : nextChar}
                     </span>
                   )}
@@ -220,7 +232,10 @@ const StaggerChars = React.memo<StaggerCharsProps>(
                     {isSpace ? "\u00A0" : char}
                   </span>
                   {!isEven && (
-                    <span className={cn("block h-[1em] leading-none", hoverClassName)} style={{ lineHeight: 1 }}>
+                    <span
+                      className={cn("block h-[1em] leading-none", hoverClassName)}
+                      style={{ lineHeight: 1 }}
+                    >
                       {isSpace ? "\u00A0" : nextChar}
                     </span>
                   )}
