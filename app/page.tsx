@@ -10,6 +10,7 @@ import dulceros from "@/public/images/dulceros.png";
 import pinatas from "@/public/images/pinatas.png";
 import decoraciones from "@/public/images/decoraciones.png";
 import ArtisanWork from "./components/ArtWork/Artwork";
+import Link from "next/link";
 
 const dockItems = [
   {
@@ -87,19 +88,21 @@ export default function Home() {
               </p>
 
               <div className="hero-cta">
-                <Button
-                  size="lg"
-                  className="hero-cta__primary bg-primary hover:bg-primary/90 text-primary-foreground"
-                >
-                  Ver Nuestros Productos
-                </Button>
-                <Button
+                <Link href="/products">
+                  <Button
+                    size="lg"
+                    className="hero-cta__primary bg-primary hover:bg-primary/90 text-primary-foreground"
+                  >
+                    Ver Nuestros Productos
+                  </Button>
+                </Link>
+                {/* <Button
                   variant="outline"
                   size="lg"
                   className="hero-cta__secondary border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
                 >
                   Solicitar Cotización
-                </Button>
+                </Button> */}
               </div>
 
               <div className="hero-stats">
