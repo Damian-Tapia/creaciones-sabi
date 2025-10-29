@@ -1,0 +1,259 @@
+// ===== Variables =====
+$color-primary: #79C6AD;
+$color-pink: #F5A8A8;
+$color-yellow: #F7D66B;
+$bg-white: #FFFFFF;
+$bg-light: #F5F1E8;
+$text-primary: #2D3748;
+$text-secondary: #718096;
+$border-color: #E2E8F0;
+$transition-base: 0.3s ease;
+
+// ===== Themes Catalog Section =====
+.themes-catalog {
+  background-color: $bg-white;
+  padding: 5rem 1rem;
+
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  // Header
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-family: var(--font-caveat);
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 0.75rem;
+
+    @media (min-width: 768px) {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__title-highlight {
+    color: $color-primary;
+  }
+
+  &__subtitle {
+    font-size: 1.125rem;
+    font-family: var(--font-inter);
+    color: $text-secondary;
+  }
+
+  // Controls
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  // Empty State
+  &__empty {
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+
+  &__empty-text {
+    font-size: 1.125rem;
+    font-family: var(--font-inter);
+    color: $text-secondary;
+  }
+}
+
+// ===== Filter Tabs =====
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  background-color: $bg-light;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-inter);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: $text-secondary;
+    background: transparent;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.1);
+      color: $color-primary;
+    }
+
+    &--active {
+      background-color: $bg-white;
+      color: $color-primary;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  &__icon {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+}
+
+// ===== Search Box =====
+.search-box {
+  position: relative;
+  width: 100%;
+  max-width: 20rem;
+
+  &__icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.25rem;
+    height: 1.25rem;
+    color: $text-secondary;
+    pointer-events: none;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    font-family: var(--font-inter);
+    font-size: 0.9375rem;
+    color: $text-primary;
+    background-color: $bg-light;
+    border: 2px solid transparent;
+    border-radius: 0.75rem;
+    transition: all $transition-base;
+
+    &::placeholder {
+      color: $text-secondary;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      background-color: $bg-white;
+    }
+  }
+}
+
+// ===== Themes Grid =====
+.themes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+  }
+}
+
+// ===== Theme Card =====
+.theme-card {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background-color: $bg-light;
+  border: 2px solid $border-color;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all $transition-base;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-color: $color-primary;
+
+    .theme-card__logo {
+      transform: scale(1.1);
+    }
+
+    .theme-card__overlay {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: translateY(-4px);
+  }
+
+  &__logo-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: all $transition-base;
+  }
+
+  &__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 1.5rem 1rem 1rem;
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+
+  &__name {
+    display: block;
+    font-family: var(--font-inter);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+  }
+}
+
+// ===== Responsive Adjustments =====
+@media (max-width: 640px) {
+  .themes-catalog {
+    padding: 3rem 1rem;
+  }
+
+  .filter-tabs {
+    justify-content: center;
+  }
+
+  .search-box {
+    max-width: 100%;
+  }
+}
