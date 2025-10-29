@@ -1,6 +1,5 @@
-import { Theme } from "@/types/product";
 
-export const themesWithProducts: Theme[] = [
+export const themesWithProducts = [
   { 
     id: '1', 
     name: 'Máscara de Látex', 
