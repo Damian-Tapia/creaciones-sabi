@@ -10,6 +10,7 @@ interface LayeredTextProps {
   offsetX?: number;
   offsetY?: number;
   strokeWidth?: number;
+  strokeColor?: string;
   animate?: boolean;
   animationDuration?: number;
   className?: string;
@@ -17,10 +18,11 @@ interface LayeredTextProps {
 
 const LayeredText: React.FC<LayeredTextProps> = ({
   text,
-  layers = ["#10B981", "#3B82F6", "#EF4444"],
+  layers = ["#F9C6D0", "#C8A2C8"],
   offsetX = 6,
   offsetY = 6,
-  strokeWidth = 4,
+  strokeWidth = 3,
+  strokeColor = "#3d1f3d",
   animate = true,
   animationDuration = 0.6,
   className,
@@ -42,10 +44,10 @@ const LayeredText: React.FC<LayeredTextProps> = ({
             transition={
               animate
                 ? {
-                  duration: animationDuration,
-                  delay: index * 0.1,
-                  ease: "easeOut",
-                }
+                    duration: animationDuration,
+                    delay: index * 0.1,
+                    ease: "easeOut",
+                  }
                 : undefined
             }
           >
@@ -56,7 +58,8 @@ const LayeredText: React.FC<LayeredTextProps> = ({
         <motion.div
           className={cn("relative", className)}
           style={{
-            WebkitTextStroke: `${strokeWidth}px var(--stroke-color)`,
+            color: "#ffffff",
+            WebkitTextStroke: `${strokeWidth}px ${strokeColor}`,
             paintOrder: "stroke fill",
             zIndex: layers.length,
           }}
@@ -65,16 +68,15 @@ const LayeredText: React.FC<LayeredTextProps> = ({
           transition={
             animate
               ? {
-                duration: animationDuration,
-                delay: layers.length * 0.1,
-                ease: "easeOut",
-              }
+                  duration: animationDuration,
+                  delay: layers.length * 0.1,
+                  ease: "easeOut",
+                }
               : undefined
           }
         >
           {text}
         </motion.div>
-
       </div>
     </div>
   );

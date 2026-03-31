@@ -1,0 +1,203 @@
+.catalog-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  min-height: 100%;
+}
+
+.catalog-page-content {
+  width: min(1120px, 92%);
+  margin-inline: auto;
+  display: grid;
+  gap: 22px;
+  padding-bottom: 72px;
+}
+
+.catalog-page-header {
+  display: grid;
+  gap: 10px;
+  text-align: center;
+  justify-items: center;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(244, 208, 111, 0.18), transparent 35%),
+    radial-gradient(circle at 100% 12%, rgba(162, 155, 254, 0.15), transparent 40%),
+    linear-gradient(165deg, #fff9f6 0%, #fdf8f3 100%);
+  border: 1px solid #efe4da;
+  border-radius: 28px;
+  box-shadow: 0 14px 32px rgba(58, 58, 58, 0.11);
+  padding: 24px;
+
+  .catalog-kicker {
+    width: fit-content;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #4b8583;
+    background: rgba(223, 244, 243, 0.95);
+    border: 1px solid rgba(110, 198, 195, 0.3);
+    padding: 7px 12px;
+    border-radius: 999px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 3.5vw, 2.7rem);
+    line-height: 1.15;
+    color: #3a3a3a;
+    max-width: 20ch;
+  }
+
+  p {
+    color: #636770;
+    max-width: 70ch;
+    line-height: 1.6;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+
+  .catalog-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #f1e6df;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 8px 22px rgba(58, 58, 58, 0.1);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: #e5d6cc;
+      box-shadow: 0 16px 28px rgba(58, 58, 58, 0.14);
+    }
+  }
+
+  .catalog-card-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f3faf9 0%, #fef3f5 100%);
+  }
+
+  .catalog-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+
+  .catalog-card:hover .catalog-card-image {
+    transform: scale(1.04);
+  }
+
+  .catalog-card-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #5a4a44;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #f2d4da;
+    box-shadow: 0 6px 12px rgba(58, 58, 58, 0.08);
+  }
+
+  .catalog-card-content {
+    display: grid;
+    gap: 8px;
+    padding: 14px 16px 0;
+    flex: 1;
+  }
+
+  .catalog-card-title {
+    font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+    font-weight: 800;
+    color: #3a3a3a;
+  }
+
+  .catalog-card-description {
+    color: #6b7280;
+    line-height: 1.55;
+    font-size: 14px;
+  }
+
+  .catalog-card-meta {
+    color: #5f6d7a;
+    background: #f8fbfd;
+    border: 1px dashed #d7e8f2;
+    border-radius: 12px;
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .catalog-card-footer {
+    padding: 14px 16px 16px;
+  }
+
+  .catalog-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #3a3a3a;
+    background: linear-gradient(90deg, #dff4f3 0%, #f9e8ee 100%);
+    border: 1px solid #d4e8e7;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 9px 16px rgba(58, 58, 58, 0.12);
+    }
+  }
+}
+
+.catalog-empty {
+  border: 1px dashed #e8d5ca;
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+  color: #6b7280;
+
+  .catalog-empty-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    background: #6ec6c3;
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1140px) {
+  .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

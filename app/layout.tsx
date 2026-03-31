@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import "./layout.scss";
+import "./styles/design-system.scss";
 import { SpotlightCard } from "@/components/ui/spotlightcard";
 
 const geistSans = Geist({
