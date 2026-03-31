@@ -46,7 +46,6 @@ export type MagicDockProps = {
 
 type DockItemProps = {
   item: DockItemData;
-  mouseX: React.RefObject<number>;
   spring: SpringOptions;
   distance: number;
   baseItemSize: number;
@@ -59,7 +58,6 @@ type DockItemProps = {
 
 function DockItem({
   item,
-  mouseX,
   spring,
   distance,
   magnification,
@@ -230,8 +228,10 @@ export default function MagicDock({
   variant = "default",
 }: MagicDockProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-  const mouseX = useRef<number>(Infinity as number);
+  const [isTouchDevice, setIsTouchDevice] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(pointer: coarse)").matches;
+  });
   const isHovered = useMotionValue(0);
 
   useEffect(() => {
@@ -240,8 +240,6 @@ export default function MagicDock({
     const handleChange = (e: MediaQueryListEvent) => {
       setIsTouchDevice(e.matches);
     };
-
-    setIsTouchDevice(mediaQuery.matches);
 
     mediaQuery.addEventListener("change", handleChange);
 
@@ -271,16 +269,14 @@ export default function MagicDock({
       className="mx-2 flex max-w-full items-center"
     >
       <motion.div
-        onMouseMove={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        onMouseMove={() => {
           if (!isTouchDevice) {
             isHovered.set(1);
-            mouseX.current = e.pageX;
           }
         }}
         onMouseLeave={() => {
           if (!isTouchDevice) {
             isHovered.set(0);
-            mouseX.current = Infinity;
           }
         }}
         className={cn(
@@ -295,7 +291,6 @@ export default function MagicDock({
           <DockItem
             key={item.id}
             item={item}
-            mouseX={mouseX}
             spring={spring}
             distance={distance}
             magnification={magnification}

@@ -1,0 +1,72 @@
+:root {
+  /* Brand palette (required) */
+  --cs-primary: #6EC6C3;
+  --cs-primary-hover: #5BB3B0;
+  --cs-primary-light: #DFF4F3;
+
+  --cs-secondary: #F6A7B0;
+  --cs-secondary-hover: #E8909A;
+
+  --cs-accent-yellow: #F4D06F;
+  --cs-accent-purple: #A29BFE;
+
+  --cs-bg-main: #FDF8F3;
+  --cs-bg-card: #FFFFFF;
+
+  --cs-text-primary: #3A3A3A;
+  --cs-text-secondary: #6B7280;
+
+  /* Semantic color tokens */
+  --cs-border-soft: #F3E9E2;
+  --cs-border-strong: #E8DAD1;
+  --cs-focus-ring: rgba(110, 198, 195, 0.45);
+  --cs-success: #34B27B;
+  --cs-danger: #E57A86;
+
+  /* Spacing scale */
+  --cs-space-1: 0.25rem;
+  --cs-space-2: 0.5rem;
+  --cs-space-3: 0.75rem;
+  --cs-space-4: 1rem;
+  --cs-space-5: 1.25rem;
+  --cs-space-6: 1.5rem;
+  --cs-space-8: 2rem;
+  --cs-space-10: 2.5rem;
+  --cs-space-12: 3rem;
+  --cs-space-16: 4rem;
+
+  /* Border radius */
+  --cs-radius-sm: 0.5rem;
+  --cs-radius-md: 0.75rem;
+  --cs-radius-lg: 1rem;
+  --cs-radius-xl: 1.5rem;
+  --cs-radius-pill: 9999px;
+
+  /* Elevation / shadows */
+  --cs-shadow-xs: 0 2px 8px rgba(58, 58, 58, 0.06);
+  --cs-shadow-sm: 0 6px 16px rgba(58, 58, 58, 0.08);
+  --cs-shadow-md: 0 12px 28px rgba(58, 58, 58, 0.12);
+  --cs-shadow-lg: 0 18px 40px rgba(58, 58, 58, 0.15);
+
+  /* Typography */
+  --cs-font-display: var(--font-poppins), "Poppins", "Nunito", sans-serif;
+  --cs-font-body: var(--font-poppins), "Poppins", "Nunito", sans-serif;
+
+  --cs-text-xs: 0.75rem;
+  --cs-text-sm: 0.875rem;
+  --cs-text-md: 1rem;
+  --cs-text-lg: 1.125rem;
+  --cs-text-xl: 1.25rem;
+  --cs-text-2xl: 1.5rem;
+  --cs-text-3xl: clamp(1.8rem, 4vw, 2.4rem);
+  --cs-text-4xl: clamp(2.2rem, 6vw, 3.2rem);
+
+  --cs-leading-tight: 1.15;
+  --cs-leading-normal: 1.5;
+  --cs-leading-relaxed: 1.7;
+
+  --cs-weight-regular: 400;
+  --cs-weight-medium: 500;
+  --cs-weight-semibold: 600;
+  --cs-weight-bold: 700;
+}
