@@ -17,6 +17,7 @@ import pinatas from "@/public/images/pinatas-collection.jpg";
 import decoraciones from "@/public/images/decorations-collection.jpg";
 import logoCrop from "@/public/images/logo-crop.png";
 import { products } from "./data/products";
+import { WHATSAPP_URL } from "./config/site";
 
 const heroHighlights = [
   "Personalización 100% artesanal",
@@ -75,16 +76,6 @@ export default function Home() {
           </section>
 
           <section className="main_page-hero-media">
-            {/* <div className="hero-main-image">
-              <Image
-                src={heroBanner}
-                alt="Mesa de fiesta con decoraciones artesanales"
-                priority
-                sizes="(max-width: 768px) 100vw, 45vw"
-                className="hero-image"
-              />
-            </div> */}
-
             <div className="hero-gallery" aria-label="Muestra de productos">
               <article className="hero-gallery-card">
                 <Image
@@ -177,7 +168,7 @@ export default function Home() {
           <p>Compártenos tu idea y te acompañamos con una propuesta artesanal, cercana y pensada para tu familia.</p>
           <a
             className="contact-button"
-            href="https://wa.me/5210000000000?text=Hola%20Creaciones%20Sabi,%20quiero%20cotizar%20mi%20evento"
+            href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
           >

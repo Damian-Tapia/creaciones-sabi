@@ -8,6 +8,7 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 type SpringOptions = {
   stiffness?: number;
@@ -16,10 +17,6 @@ type SpringOptions = {
   velocity?: number;
   restSpeed?: number;
   restDelta?: number;
-};
-
-const cn = (...classes: (string | undefined | false | null)[]) => {
-  return classes.filter(Boolean).join(" ");
 };
 
 export type DockItemData = {
@@ -144,8 +141,10 @@ function DockItem({
       onMouseLeave={() => !isTouchDevice && setHoveredIndex(null)}
       onMouseMove={handleItemMouseMove}
       onClick={item.onClick}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); item.onClick(); } }}
       tabIndex={0}
       role="button"
+      aria-label={item.label}
       aria-haspopup="true"
     >
       <motion.div
@@ -198,8 +197,8 @@ function DockItem({
             >
               {variant === "tooltip" && (
                 <>
-                  <div className="absolute inset-x-10 -bottom-px z-30 h-px w-[20%] bg-gradient-to-r from-transparent via-emerald-500 to-transparent" />
-                  <div className="absolute -bottom-px z-30 h-px w-[40%] bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
+                  <div className="absolute inset-x-10 -bottom-px z-30 h-px w-[20%] bg-linear-to-r from-transparent via-emerald-500 to-transparent" />
+                  <div className="absolute -bottom-px z-30 h-px w-[40%] bg-linear-to-r from-transparent via-sky-500 to-transparent" />
                 </>
               )}
               <div className="relative z-30 text-base font-bold text-white">
