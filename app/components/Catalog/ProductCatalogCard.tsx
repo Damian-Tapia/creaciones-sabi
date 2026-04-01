@@ -5,19 +5,28 @@ import { ArrowRightIcon } from "lucide-react";
 type ProductCatalogCardProps = {
   title: string;
   description: string;
-  image: StaticImageData;
+  image: StaticImageData | string;
   imageAlt: string;
+  price?: string;
+  meta?: string;
 };
 
-export default function ProductCatalogCard({ title, description, image, imageAlt }: ProductCatalogCardProps) {
+export default function ProductCatalogCard({ title, description, image, imageAlt, price, meta }: ProductCatalogCardProps) {
   return (
     <article className="catalog-card">
+      {price && (
+        <div className="catalog-card-top-bar" aria-label={`Precio: ${price}`}>
+          <span className="catalog-card-price-label">Precio</span>
+          <strong className="catalog-card-price">{price}</strong>
+        </div>
+      )}
+
       <div className="catalog-card-media">
         <Image
           src={image}
           alt={imageAlt}
+          fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          loading="lazy"
           className="catalog-card-image"
         />
         <span className="catalog-card-badge">Hecho a mano</span>
@@ -26,7 +35,7 @@ export default function ProductCatalogCard({ title, description, image, imageAlt
       <div className="catalog-card-content">
         <h3 className="catalog-card-title">{title}</h3>
         <p className="catalog-card-description">{description}</p>
-        <p className="catalog-card-meta">Tiempo de entrega estimado: 4 a 7 días según personalización.</p>
+        {meta && <p className="catalog-card-meta">{meta}</p>}
       </div>
 
       <div className="catalog-card-footer">
