@@ -26,7 +26,7 @@ type CatalogSection = {
 };
 
 const pinataPricingTiers: PricingTier[] = [
-  { label: "Centro de casa", size: "40 cm", price: "$150" },
+  { label: "Centro de mesa", size: "40 cm", price: "$150" },
   { label: "Mini", size: "30 cm", price: "$250" },
   { label: "Chica", size: "50 cm", price: "$300" },
   { label: "Mediana", size: "60–70 cm", price: "$350" },
