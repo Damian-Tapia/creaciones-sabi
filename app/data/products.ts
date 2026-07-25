@@ -61,6 +61,7 @@ export const catalogPinatas: ProductItem[] = [
   { title: "Mario y Luigi", description: "Piñata temática de Mario y Luigi hecha a mano, disponible en varios tamaños.", image: pub("Nuevas Piñatas", "Mario y Luigi.jpg"), imageAlt: "Piñata de Mario y Luigi hecha a mano", category: "piñata" },
   { title: "Mario", description: "Piñata temática de Mario hecha a mano, disponible en varios tamaños.", image: pub("Nuevas Piñatas", "Mario.jpeg"), imageAlt: "Piñata de Mario hecha a mano", category: "piñata" },
   { title: "Mickey", description: "Piñata temática de Mickey hecha a mano, disponible en varios tamaños.", image: pub("Nuevas Piñatas", "Micky.jpeg"), imageAlt: "Piñata de Mickey hecha a mano", category: "piñata" },
+  { title: "Pipo", description: "Piñata temática de Pipo hecha a mano, disponible en varios tamaños.", image: pub("products", "pinata_pipo.jpeg"), imageAlt: "Piñata de Pipo hecha a mano", category: "piñata" },
   { title: "Stitch", description: "Piñata temática de Stitch hecha a mano, disponible en varios tamaños.", image: pub("Nuevas Piñatas", "Stitch.jpeg"), imageAlt: "Piñata de Stitch hecha a mano", category: "piñata" },
   { title: "Yoshi", description: "Piñata temática de Yoshi hecha a mano, disponible en varios tamaños.", image: pub("Nuevas Piñatas", "Yoshi.jpeg"), imageAlt: "Piñata de Yoshi hecha a mano", category: "piñata" },
 ];
@@ -86,6 +87,7 @@ export const catalogDulceros: ProductItem[] = [
   { title: "Changuito", description: "Dulcero artesanal de Changuito.", image: pub("Nuevos dulceros", "Changuito.jpeg"), imageAlt: "Dulcero de Changuito hecho a mano", price: "$40", category: "dulcero" },
   { title: "Chapulín Colorado", description: "Dulcero artesanal de Chapulín Colorado.", image: pub("Nuevos dulceros", "Chapulin Colorado.jpeg"), imageAlt: "Dulcero de Chapulín Colorado hecho a mano", price: "$40", category: "dulcero" },
   { title: "El Chavo", description: "Dulcero artesanal de El Chavo.", image: pub("Nuevos dulceros", "Chavo.JPG"), imageAlt: "Dulcero de El Chavo hecho a mano", price: "$40", category: "dulcero" },
+  { title: "Chispita", description: "Dulcero artesanal de Chispita.", image: pub("products", "dulcero_chispita.jpg"), imageAlt: "Dulcero de Chispita hecho a mano", price: "$40", category: "dulcero" },
   { title: "La Chilindrina", description: "Dulcero artesanal de La Chilindrina.", image: pub("Nuevos dulceros", "Chilindrina.jpeg"), imageAlt: "Dulcero de La Chilindrina hecho a mano", price: "$40", category: "dulcero" },
   { title: "Conejo Blanco", description: "Dulcero artesanal de Conejo Blanco.", image: pub("Nuevos dulceros", "Conejo Blanco.jpeg"), imageAlt: "Dulcero de Conejo Blanco hecho a mano", price: "$40", category: "dulcero" },
   { title: "Cosa Rosa", description: "Dulcero artesanal de Cosa Rosa.", image: pub("Nuevos dulceros", "Cosa rosa.jpeg"), imageAlt: "Dulcero de Cosa Rosa hecho a mano", price: "$40", category: "dulcero" },
@@ -124,6 +126,7 @@ export const catalogDulceros: ProductItem[] = [
   { title: "Piccolo", description: "Dulcero artesanal de Piccolo.", image: pub("Nuevos dulceros", "Picoro.jpeg"), imageAlt: "Dulcero de Piccolo hecho a mano", price: "$40", category: "dulcero" },
   { title: "Piglet", description: "Dulcero artesanal de Piglet.", image: pub("Nuevos dulceros", "Pigglet.jpeg"), imageAlt: "Dulcero de Piglet hecho a mano", price: "$40", category: "dulcero" },
   { title: "Pinocho", description: "Dulcero artesanal de Pinocho.", image: pub("Nuevos dulceros", "Pinocho.jpeg"), imageAlt: "Dulcero de Pinocho hecho a mano", price: "$40", category: "dulcero" },
+  { title: "Pipo", description: "Dulcero artesanal de Pipo.", image: pub("products", "dulcero_pipo.jpg"), imageAlt: "Dulcero de Pipo hecho a mano", price: "$40", category: "dulcero" },
   { title: "Piolín", description: "Dulcero artesanal de Piolín.", image: pub("Nuevos dulceros", "Piolin.jpeg"), imageAlt: "Dulcero de Piolín hecho a mano", price: "$40", category: "dulcero" },
   { title: "Pocoyó", description: "Dulcero artesanal de Pocoyó.", image: pub("Nuevos dulceros", "Pocoyo.jpeg"), imageAlt: "Dulcero de Pocoyó hecho a mano", price: "$40", category: "dulcero" },
   { title: "Rayo McQueen", description: "Dulcero artesanal de Rayo McQueen.", image: pub("Nuevos dulceros", "Rayo McQueen.jpeg"), imageAlt: "Dulcero de Rayo McQueen hecho a mano", price: "$40", category: "dulcero" },
